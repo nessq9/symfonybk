@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catfood index{% endblock %}
+
+{% block body %}
+    <h1>Catfood index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Icon</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for catfood in catfoods %}
+            <tr>
+                <td>{{ catfood.id }}</td>
+                <td>{{ catfood.titre }}</td>
+                <td>{{ catfood.description }}</td>
+                <td>{{ catfood.icon }}</td>
+                <td>
+                    <a href="{{ path('catfood_show', {'id': catfood.id}) }}">show</a>
+                    <a href="{{ path('catfood_edit', {'id': catfood.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('catfood_new') }}">Create new</a>
+{% endblock %}

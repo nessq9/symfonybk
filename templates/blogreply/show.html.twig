@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blogreply{% endblock %}
+
+{% block body %}
+    <h1>Blogreply</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ blogreply.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ blogreply.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ blogreply.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ blogreply.photo }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ blogreply.date ? blogreply.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Heure</th>
+                <td>{{ blogreply.heure ? blogreply.heure|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td>{{ blogreply.message }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('blogreply_index') }}">back to list</a>
+
+    <a href="{{ path('blogreply_edit', {'id': blogreply.id}) }}">edit</a>
+
+    {{ include('blogreply/_delete_form.html.twig') }}
+{% endblock %}

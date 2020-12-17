@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blogcategory index{% endblock %}
+
+{% block body %}
+    <h1>Blogcategory index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Rubrique</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for blogcategory in blogcategories %}
+            <tr>
+                <td>{{ blogcategory.id }}</td>
+                <td>{{ blogcategory.rubrique }}</td>
+                <td>
+                    <a href="{{ path('blogcategory_show', {'id': blogcategory.id}) }}">show</a>
+                    <a href="{{ path('blogcategory_edit', {'id': blogcategory.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('blogcategory_new') }}">Create new</a>
+{% endblock %}

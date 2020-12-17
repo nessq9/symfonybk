@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Blogreply{% endblock %}
+
+{% block body %}
+    <h1>Create new Blogreply</h1>
+
+    {{ include('blogreply/_form.html.twig') }}
+
+    <a href="{{ path('blogreply_index') }}">back to list</a>
+{% endblock %}
